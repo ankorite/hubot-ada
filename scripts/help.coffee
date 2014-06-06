@@ -69,9 +69,14 @@ module.exports = (robot) ->
       cmd = cmd.replace /^hubot/, prefix
       cmd.replace /hubot/ig, robot.name
 
-    emit = cmds.join "\n"
 
-    msg.send emit
+    msg.message.reply_to = msg.envelope.user.id
+
+    robot.adapter.send msg.message, cmds.join "\n"
+
+    msg.message.reply_to = null
+
+    msg.reply 'I private messaged you a list of my commands, you can also view them at any time here: http://test-bot-ada.herokuapp.com/Ada/help'
 
   robot.router.get "/#{robot.name}/help", (req, res) ->
     cmds = robot.helpCommands().map (cmd) ->
