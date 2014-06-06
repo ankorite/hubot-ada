@@ -26,7 +26,7 @@
     "hubot-slack": ">= 2.1.0",
     "mongodb": ">= 1.2.0",
     "hubot-ingress": ">= 0.3.5",
-    "hubot-factoids": "*",
+    "hubot-factoids": ">= 0.2.1",
     "underscore": ">= 1.0.0",
     "clark": ">= 0.0.6"
   },

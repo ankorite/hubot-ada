@@ -1,0 +1,269 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/home/justin/local/bin/npm', 'update' ]
+2 info using npm@1.4.13
+3 info using node@v0.10.28
+4 verbose url raw hubot
+5 verbose url resolving [ 'https://registry.npmjs.org/', './hubot' ]
+6 verbose url resolved https://registry.npmjs.org/hubot
+7 info trying registry request attempt 1 at 18:47:16
+8 verbose etag "21UNYKIXCGO9U187VPD6WAIJN"
+9 http GET https://registry.npmjs.org/hubot
+10 verbose url raw hubot-scripts
+11 verbose url resolving [ 'https://registry.npmjs.org/', './hubot-scripts' ]
+12 verbose url resolved https://registry.npmjs.org/hubot-scripts
+13 info trying registry request attempt 1 at 18:47:17
+14 verbose etag "B3EEIIYA03IBZQO1OG12CEP6S"
+15 http GET https://registry.npmjs.org/hubot-scripts
+16 verbose url raw hubot-slack
+17 verbose url resolving [ 'https://registry.npmjs.org/', './hubot-slack' ]
+18 verbose url resolved https://registry.npmjs.org/hubot-slack
+19 info trying registry request attempt 1 at 18:47:17
+20 verbose etag "3246887T758951SP9PHWGW7I1"
+21 http GET https://registry.npmjs.org/hubot-slack
+22 verbose url raw hubot-ingress
+23 verbose url resolving [ 'https://registry.npmjs.org/', './hubot-ingress' ]
+24 verbose url resolved https://registry.npmjs.org/hubot-ingress
+25 info trying registry request attempt 1 at 18:47:17
+26 verbose etag "A153X99R0YW1N3NBTK0VJUEZL"
+27 http GET https://registry.npmjs.org/hubot-ingress
+28 verbose url raw hubot-factoids
+29 verbose url resolving [ 'https://registry.npmjs.org/', './hubot-factoids' ]
+30 verbose url resolved https://registry.npmjs.org/hubot-factoids
+31 info trying registry request attempt 1 at 18:47:17
+32 verbose etag "6S4EGUS0QJFG7MF0313L2XJGX"
+33 http GET https://registry.npmjs.org/hubot-factoids
+34 verbose url raw clark
+35 verbose url resolving [ 'https://registry.npmjs.org/', './clark' ]
+36 verbose url resolved https://registry.npmjs.org/clark
+37 info trying registry request attempt 1 at 18:47:17
+38 verbose etag "1ABHLU0YBXLWPUPZJBN30UZ6C"
+39 http GET https://registry.npmjs.org/clark
+40 verbose url raw underscore
+41 verbose url resolving [ 'https://registry.npmjs.org/', './underscore' ]
+42 verbose url resolved https://registry.npmjs.org/underscore
+43 info trying registry request attempt 1 at 18:47:17
+44 verbose etag "ESIHIICEYEJXWKDMHF8WDAP8F"
+45 http GET https://registry.npmjs.org/underscore
+46 verbose url raw mongodb
+47 verbose url resolving [ 'https://registry.npmjs.org/', './mongodb' ]
+48 verbose url resolved https://registry.npmjs.org/mongodb
+49 info trying registry request attempt 1 at 18:47:17
+50 verbose etag "DV7XMQ11OSDRE4O8D0X4XFBSB"
+51 http GET https://registry.npmjs.org/mongodb
+52 http 304 https://registry.npmjs.org/hubot-slack
+53 silly registry.get cb [ 304,
+53 silly registry.get   { date: 'Fri, 06 Jun 2014 02:47:14 GMT',
+53 silly registry.get     server: 'Apache',
+53 silly registry.get     via: '1.1 varnish',
+53 silly registry.get     'last-modified': 'Fri, 06 Jun 2014 02:47:14 GMT',
+53 silly registry.get     'cache-control': 'max-age=1',
+53 silly registry.get     etag: '"3246887T758951SP9PHWGW7I1"',
+53 silly registry.get     'x-served-by': 'cache-sv95-SJC3',
+53 silly registry.get     'x-cache': 'MISS',
+53 silly registry.get     'x-cache-hits': '0',
+53 silly registry.get     'x-timer': 'S1402022834.072126,VS0,VE32',
+53 silly registry.get     vary: 'Accept',
+53 silly registry.get     'content-length': '0',
+53 silly registry.get     'keep-alive': 'timeout=10, max=50',
+53 silly registry.get     connection: 'Keep-Alive' } ]
+54 verbose etag hubot-slack from cache
+55 http 304 https://registry.npmjs.org/hubot
+56 silly registry.get cb [ 304,
+56 silly registry.get   { date: 'Fri, 06 Jun 2014 02:47:14 GMT',
+56 silly registry.get     server: 'Apache',
+56 silly registry.get     via: '1.1 varnish',
+56 silly registry.get     'last-modified': 'Fri, 06 Jun 2014 02:47:14 GMT',
+56 silly registry.get     'cache-control': 'max-age=1',
+56 silly registry.get     etag: '"21UNYKIXCGO9U187VPD6WAIJN"',
+56 silly registry.get     'x-served-by': 'cache-sv62-SJC3',
+56 silly registry.get     'x-cache': 'MISS',
+56 silly registry.get     'x-cache-hits': '0',
+56 silly registry.get     'x-timer': 'S1402022834.062483,VS0,VE39',
+56 silly registry.get     vary: 'Accept',
+56 silly registry.get     'content-length': '0',
+56 silly registry.get     'keep-alive': 'timeout=10, max=50',
+56 silly registry.get     connection: 'Keep-Alive' } ]
+57 verbose etag hubot from cache
+58 http 304 https://registry.npmjs.org/hubot-ingress
+59 silly registry.get cb [ 304,
+59 silly registry.get   { date: 'Fri, 06 Jun 2014 02:47:14 GMT',
+59 silly registry.get     server: 'Apache',
+59 silly registry.get     via: '1.1 varnish',
+59 silly registry.get     'last-modified': 'Fri, 06 Jun 2014 02:47:14 GMT',
+59 silly registry.get     'cache-control': 'max-age=1',
+59 silly registry.get     etag: '"A153X99R0YW1N3NBTK0VJUEZL"',
+59 silly registry.get     'x-served-by': 'cache-sv94-SJC3',
+59 silly registry.get     'x-cache': 'MISS',
+59 silly registry.get     'x-cache-hits': '0',
+59 silly registry.get     'x-timer': 'S1402022834.095375,VS0,VE32',
+59 silly registry.get     vary: 'Accept',
+59 silly registry.get     'content-length': '0',
+59 silly registry.get     'keep-alive': 'timeout=10, max=50',
+59 silly registry.get     connection: 'Keep-Alive' } ]
+60 verbose etag hubot-ingress from cache
+61 http 304 https://registry.npmjs.org/hubot-scripts
+62 silly registry.get cb [ 304,
+62 silly registry.get   { date: 'Fri, 06 Jun 2014 02:47:14 GMT',
+62 silly registry.get     server: 'Apache',
+62 silly registry.get     via: '1.1 varnish',
+62 silly registry.get     'last-modified': 'Fri, 06 Jun 2014 02:47:14 GMT',
+62 silly registry.get     'cache-control': 'max-age=1',
+62 silly registry.get     etag: '"B3EEIIYA03IBZQO1OG12CEP6S"',
+62 silly registry.get     'x-served-by': 'cache-sv94-SJC3',
+62 silly registry.get     'x-cache': 'MISS',
+62 silly registry.get     'x-cache-hits': '0',
+62 silly registry.get     'x-timer': 'S1402022834.132184,VS0,VE38',
+62 silly registry.get     vary: 'Accept',
+62 silly registry.get     'content-length': '0',
+62 silly registry.get     'keep-alive': 'timeout=10, max=50',
+62 silly registry.get     connection: 'Keep-Alive' } ]
+63 verbose etag hubot-scripts from cache
+64 http 304 https://registry.npmjs.org/hubot-factoids
+65 silly registry.get cb [ 304,
+65 silly registry.get   { date: 'Fri, 06 Jun 2014 02:47:14 GMT',
+65 silly registry.get     server: 'Apache',
+65 silly registry.get     via: '1.1 varnish',
+65 silly registry.get     'last-modified': 'Fri, 06 Jun 2014 02:47:14 GMT',
+65 silly registry.get     'cache-control': 'max-age=1',
+65 silly registry.get     etag: '"6S4EGUS0QJFG7MF0313L2XJGX"',
+65 silly registry.get     'x-served-by': 'cache-sv60-SJC3',
+65 silly registry.get     'x-cache': 'MISS',
+65 silly registry.get     'x-cache-hits': '0',
+65 silly registry.get     'x-timer': 'S1402022834.169124,VS0,VE90',
+65 silly registry.get     vary: 'Accept',
+65 silly registry.get     'content-length': '0',
+65 silly registry.get     'keep-alive': 'timeout=10, max=50',
+65 silly registry.get     connection: 'Keep-Alive' } ]
+66 verbose etag hubot-factoids from cache
+67 http 304 https://registry.npmjs.org/underscore
+68 silly registry.get cb [ 304,
+68 silly registry.get   { date: 'Fri, 06 Jun 2014 02:47:14 GMT',
+68 silly registry.get     server: 'Apache',
+68 silly registry.get     via: '1.1 varnish',
+68 silly registry.get     'last-modified': 'Fri, 06 Jun 2014 02:47:10 GMT',
+68 silly registry.get     'cache-control': 'max-age=1',
+68 silly registry.get     etag: '"ESIHIICEYEJXWKDMHF8WDAP8F"',
+68 silly registry.get     'x-served-by': 'cache-sv62-SJC3',
+68 silly registry.get     'x-cache': 'HIT',
+68 silly registry.get     'x-cache-hits': '4',
+68 silly registry.get     'x-timer': 'S1402022834.270255,VS0,VE0',
+68 silly registry.get     vary: 'Accept',
+68 silly registry.get     'content-length': '0',
+68 silly registry.get     'keep-alive': 'timeout=10, max=49',
+68 silly registry.get     connection: 'Keep-Alive' } ]
+69 verbose etag underscore from cache
+70 http 304 https://registry.npmjs.org/clark
+71 silly registry.get cb [ 304,
+71 silly registry.get   { date: 'Fri, 06 Jun 2014 02:47:14 GMT',
+71 silly registry.get     server: 'Apache',
+71 silly registry.get     via: '1.1 varnish',
+71 silly registry.get     'last-modified': 'Fri, 06 Jun 2014 02:47:14 GMT',
+71 silly registry.get     'cache-control': 'max-age=1',
+71 silly registry.get     etag: '"1ABHLU0YBXLWPUPZJBN30UZ6C"',
+71 silly registry.get     'x-served-by': 'cache-sv95-SJC3',
+71 silly registry.get     'x-cache': 'MISS',
+71 silly registry.get     'x-cache-hits': '0',
+71 silly registry.get     'x-timer': 'S1402022834.252005,VS0,VE42',
+71 silly registry.get     vary: 'Accept',
+71 silly registry.get     'content-length': '0',
+71 silly registry.get     'keep-alive': 'timeout=10, max=49',
+71 silly registry.get     connection: 'Keep-Alive' } ]
+72 verbose etag clark from cache
+73 http 304 https://registry.npmjs.org/mongodb
+74 silly registry.get cb [ 304,
+74 silly registry.get   { date: 'Fri, 06 Jun 2014 02:47:14 GMT',
+74 silly registry.get     server: 'Apache',
+74 silly registry.get     via: '1.1 varnish',
+74 silly registry.get     'last-modified': 'Fri, 06 Jun 2014 02:47:14 GMT',
+74 silly registry.get     'cache-control': 'max-age=1',
+74 silly registry.get     etag: '"DV7XMQ11OSDRE4O8D0X4XFBSB"',
+74 silly registry.get     'x-served-by': 'cache-sv94-SJC3',
+74 silly registry.get     'x-cache': 'HIT',
+74 silly registry.get     'x-cache-hits': '1',
+74 silly registry.get     'x-timer': 'S1402022834.280171,VS0,VE40',
+74 silly registry.get     vary: 'Accept',
+74 silly registry.get     'content-length': '0',
+74 silly registry.get     'keep-alive': 'timeout=10, max=49',
+74 silly registry.get     connection: 'Keep-Alive' } ]
+75 verbose etag mongodb from cache
+76 verbose cache add [ 'hubot-factoids', '>= 0.2.2' ]
+77 verbose cache add name="hubot-factoids" spec=">= 0.2.2" args=["hubot-factoids",">= 0.2.2"]
+78 verbose parsed url { protocol: null,
+78 verbose parsed url   slashes: null,
+78 verbose parsed url   auth: null,
+78 verbose parsed url   host: null,
+78 verbose parsed url   port: null,
+78 verbose parsed url   hostname: null,
+78 verbose parsed url   hash: null,
+78 verbose parsed url   search: null,
+78 verbose parsed url   query: null,
+78 verbose parsed url   pathname: '%3E=%200.2.2',
+78 verbose parsed url   path: '%3E=%200.2.2',
+78 verbose parsed url   href: '%3E=%200.2.2' }
+79 verbose addNamed [ 'hubot-factoids', '>= 0.2.2' ]
+80 verbose addNamed [ null, '>=0.2.2' ]
+81 silly lockFile eec4e198-hubot-factoids-0-2-2 hubot-factoids@>= 0.2.2
+82 verbose lock hubot-factoids@>= 0.2.2 /home/justin/.npm/eec4e198-hubot-factoids-0-2-2.lock
+83 silly addNameRange { name: 'hubot-factoids', range: '>=0.2.2', hasData: false }
+84 verbose url raw coffee-script
+85 verbose url resolving [ 'https://registry.npmjs.org/', './coffee-script' ]
+86 verbose url resolved https://registry.npmjs.org/coffee-script
+87 info trying registry request attempt 1 at 18:47:18
+88 verbose etag "CH8NI9SSLP63IRV7L5LU52W3S"
+89 http GET https://registry.npmjs.org/coffee-script
+90 verbose url raw coffee-script
+91 verbose url resolving [ 'https://registry.npmjs.org/', './coffee-script' ]
+92 verbose url resolved https://registry.npmjs.org/coffee-script
+93 info trying registry request attempt 1 at 18:47:18
+94 verbose etag "CH8NI9SSLP63IRV7L5LU52W3S"
+95 http GET https://registry.npmjs.org/coffee-script
+96 verbose url raw optparse
+97 verbose url resolving [ 'https://registry.npmjs.org/', './optparse' ]
+98 verbose url resolved https://registry.npmjs.org/optparse
+99 info trying registry request attempt 1 at 18:47:18
+100 verbose etag "64MK3IM9JYUL32JSRYSQD1L62"
+101 http GET https://registry.npmjs.org/optparse
+102 verbose url raw scoped-http-client
+103 verbose url resolving [ 'https://registry.npmjs.org/', './scoped-http-client' ]
+104 verbose url resolved https://registry.npmjs.org/scoped-http-client
+105 info trying registry request attempt 1 at 18:47:18
+106 verbose etag "97E156P0CNDCFPTJHH0H3Q63B"
+107 http GET https://registry.npmjs.org/scoped-http-client
+108 verbose url raw log
+109 verbose url resolving [ 'https://registry.npmjs.org/', './log' ]
+110 verbose url resolved https://registry.npmjs.org/log
+111 info trying registry request attempt 1 at 18:47:18
+112 verbose etag "5C20FCKQJS0JF9U6UPA7QF5SP"
+113 http GET https://registry.npmjs.org/log
+114 verbose url raw express
+115 verbose url resolving [ 'https://registry.npmjs.org/', './express' ]
+116 verbose url resolved https://registry.npmjs.org/express
+117 info trying registry request attempt 1 at 18:47:18
+118 verbose etag "2KMAAZKD1CGQU9XPOX38W3UIN"
+119 http GET https://registry.npmjs.org/express
+120 verbose url raw redis
+121 verbose url resolving [ 'https://registry.npmjs.org/', './redis' ]
+122 verbose url resolved https://registry.npmjs.org/redis
+123 info trying registry request attempt 1 at 18:47:18
+124 verbose etag "P0RB73G1AW2ZPERXNJO9RDK"
+125 http GET https://registry.npmjs.org/redis
+126 verbose registry.get hubot-factoids not expired, no request
+127 silly addNameRange number 2 { name: 'hubot-factoids', range: '>=0.2.2', hasData: true }
+128 silly addNameRange versions [ 'hubot-factoids', [ '0.1.0', '0.1.1', '0.2.0', '0.2.1' ] ]
+129 silly lockFile eec4e198-hubot-factoids-0-2-2 hubot-factoids@>= 0.2.2
+130 silly lockFile eec4e198-hubot-factoids-0-2-2 hubot-factoids@>= 0.2.2
+131 info outdated updating []
+132 error notarget No compatible version found: hubot-factoids@'>=0.2.2'
+132 error notarget Valid install targets:
+132 error notarget ["0.1.0","0.1.1","0.2.0","0.2.1"]
+132 error notarget
+132 error notarget This is most likely not a problem with npm itself.
+132 error notarget In most cases you or one of your dependencies are requesting
+132 error notarget a package version that doesn't exist.
+133 error System Linux 3.2.0-35-generic-pae
+134 error command "node" "/home/justin/local/bin/npm" "update"
+135 error cwd /home/justin/bot/ada
+136 error node -v v0.10.28
+137 error npm -v 1.4.13
+138 error code ETARGET
+139 verbose exit [ 1, true ]
