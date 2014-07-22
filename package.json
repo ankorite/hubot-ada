@@ -30,7 +30,7 @@
     "hubot-plusplus": ">= 1.0.0"
   },
   "engines": {
-    "node": ">= 0.8.x",
-    "npm": ">= 1.1.x"
+    "node": "0.10.x",
+    "npm": "1.4.x"
   }
 }
