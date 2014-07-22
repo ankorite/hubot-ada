@@ -27,7 +27,7 @@
     "mongodb": ">= 1.2.0",
     "hubot-ingress": ">= 0.3.5",
     "hubot-factoids": ">= 0.2.1",
-    "hubot-plusplus": ">= 1.0.0"
+    "hubot-plusplus": "1.0.1"
   },
   "engines": {
     "node": "0.10.x",
