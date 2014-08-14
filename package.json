@@ -27,7 +27,8 @@
     "hubot-ingress": ">= 0.3.5",
     "hubot-factoids": ">= 0.2.3",
     "hubot-plusplus": ">= 1.0.1",
-    "hubot-scorekeeper": ">= 0.0.7"
+    "hubot-scorekeeper": ">= 0.0.7",
+    "hubot-newrelic": ">= 0.1.3"
   },
   "engines": {
     "node": "0.10.x",
