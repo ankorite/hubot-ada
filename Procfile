@@ -1,1 +1,1 @@
-web: bin/hubot -a slack -n Ada
+app: bin/hubot -a slack -n Ada
