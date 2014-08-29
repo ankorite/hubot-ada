@@ -28,7 +28,9 @@
     "hubot-factoids": ">= 0.2.3",
     "hubot-plusplus": ">= 1.0.1",
     "hubot-fliptable": ">= 0.0.0",
-    "hubot-business-cat": "1.0.x"
+    "hubot-business-cat": "1.0.x",
+    "consolidate": "^0.10.0",
+    "hogan.js": "^3.0.1"
   },
   "engines": {
     "node": "0.10.x",
