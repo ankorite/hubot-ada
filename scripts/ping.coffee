@@ -25,5 +25,5 @@ module.exports = (robot) ->
     process.exit 0
 
   robot.respond /debug modules path/, (msg) ->
-    msg.reply path.resolve __dirname
+    msg.send path.resolve __dirname
 
