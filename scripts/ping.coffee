@@ -24,6 +24,3 @@ module.exports = (robot) ->
     msg.send "Goodbye, cruel world."
     process.exit 0
 
-  robot.respond /path/i, (msg) ->
-    msg.send "here is the path" path.resolve __dirname
-
