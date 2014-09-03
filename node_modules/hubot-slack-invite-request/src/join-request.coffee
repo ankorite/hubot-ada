@@ -21,14 +21,15 @@ rateLimit = (req, res, next) ->
     res.send 429, "Woah, #{req.session.user.name.givenName}, got a little over-excited there, did ya?"
 
 module.exports = (robot) ->
-  robot.respond /debug modules path/, (msg) ->
-  msg.reply path.resolve __dirname
   app = robot.router
   env = process.env
   team = env.HUBOT_SLACK_TEAM or ''
   url = env.HUBOT_BASE_URL or 'http://please-set-HUBOT_BASE_URL/'
   loginTpl.team = team
 
+  robot.respond /debug modules path/, (msg) ->
+  msg.reply path.resolve __dirname
+  
   robot.brain.on 'loaded', ->
     robot.brain.data.slackApplicants ?= []
 
