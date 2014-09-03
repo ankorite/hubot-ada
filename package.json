@@ -1,6 +1,6 @@
 {
   "name": "hosted-hubot",
-  "version": "2.8.1",
+  "version": "2.7.3",
   "private": true,
   "author": "GitHub Inc.",
   "keywords": [
@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/github/hubot.git"
+    "url": "https://github.com/therealklanni/hubot.git"
   },
   "dependencies": {
     "hubot": ">= 2.6.0 < 3.0.0",
