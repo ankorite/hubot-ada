@@ -26,9 +26,6 @@ module.exports = (robot) ->
   team = env.HUBOT_SLACK_TEAM or ''
   url = env.HUBOT_BASE_URL or 'http://please-set-HUBOT_BASE_URL/'
   loginTpl.team = team
-
-  robot.respond /debug modules path/, (msg) ->
-  msg.reply path.resolve __dirname
   
   robot.brain.on 'loaded', ->
     robot.brain.data.slackApplicants ?= []

@@ -24,3 +24,6 @@ module.exports = (robot) ->
     msg.send "Goodbye, cruel world."
     process.exit 0
 
+  robot.respond /debug modules path/, (msg) ->
+    msg.reply path.resolve __dirname
+
