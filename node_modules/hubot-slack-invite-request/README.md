@@ -35,7 +35,7 @@ To use this script, you will need a Google API developer key. Visit the [Google
 Developer Console](https://console.developers.google.com) to set up a new project.
 
 1. In the Developer Console, click `Add Project` to create a new project.
-2. On the Porject Dashboard, click `Enable an API` and turn on `Google+ API`
+2. On the Project Dashboard, click `Enable an API` and turn on `Google+ API`
 3. Click on `Credentials` on the left navigation (under "APIs and Auth")
 4. Click on `Create new Client ID` under "OAuth"
 5. Choose "Web application"
@@ -45,6 +45,7 @@ Developer Console](https://console.developers.google.com) to set up a new projec
 
 ### Environment variables
 
+* `EXPRESS_STATIC` - absolute path to the `src/static` directory of this module (e.g. `/opt/hubot/node_modules/hubot-slack-invite-request/src/public`)
 * `HUBOT_SLACK_ADMIN_CHANNEL` - the destination for the request notifications from Hubot; this can be a public channel or private group.
 * `HUBOT_BASE_URL` - the base URL for where your hubot lives (e.g. http://myhubot.com/), *please include the trailing slash*
 
