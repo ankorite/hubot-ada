@@ -17,7 +17,7 @@
 module.exports = (robot) ->
   robot.brain.on 'loaded', =>
     robot.brain.data.welcomeUsers ||= []
-    robot.brain.data.welcomeMsg ||= "Welcome to the EnlightenedAK Slack team! I am your personal chatbot here to make your life easier. For more information on my commands say 'ada help' in chat."
+    robot.brain.data.welcomeMsg ||= "Welcome to the Slack team! I am your personal chatbot here to make your life easier. For more information on my commands say '[my name] help' in chat."
 
   robot.respond /welcome (.*)/i, (msg) ->
     if msg.message.user.name in robot.brain.data.admins
