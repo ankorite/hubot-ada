@@ -19,13 +19,13 @@ module.exports = (robot) ->
     robot.brain.data.welcomeUsers ||= []
     robot.brain.data.welcomeMsg ||= "Welcome to the Slack team! I am your personal chatbot here to make your life easier. For more information on my commands say '[my name] help' in chat."
 
-  robot.respond /welcome (.*)$/i, (msg) ->
-    if msg.message.user.name in robot.brain.data.admins
-      robot.brain.data.welcomeMsg = msg.match[1]
+  robot.respond /WELCOMESET (.*)$/i, (msg) ->
+#    if msg.message.user.name in robot.brain.data.admins
+    robot.brain.data.welcomeMsg = msg.match[1]
 #      robot.brain.data.welcomeUsers = []
-      msg.send "I will notify everybody of this new message!"
-    else
-      msg.send "You are so naughty! Ask one of the admins to change this."
+    msg.send "I will notify everybody of this new message!"
+#    else
+#      msg.send "You are so naughty! Ask one of the admins to change this."
 
   robot.hear /./i, (msg) ->
     welcomeUsers = robot.brain.data.welcomeUsers
