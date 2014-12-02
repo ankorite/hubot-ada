@@ -19,7 +19,7 @@ module.exports = (robot) ->
     robot.brain.data.welcomeUsers ||= []
     robot.brain.data.welcomeMsg ||= "Welcome to the Slack team! I am your personal chatbot here to make your life easier. For more information on my commands say '[my name] help' in chat."
 
-  robot.respond /welcome (.*)/i, (msg) ->
+  robot.respond /welcome (.*)$/i, (msg) ->
     if msg.message.user.name in robot.brain.data.admins
       robot.brain.data.welcomeMsg = msg.match[1]
 #      robot.brain.data.welcomeUsers = []
@@ -33,8 +33,3 @@ module.exports = (robot) ->
       welcomeUsers.push(msg.message.user.name)
       msg.send "Hey "+msg.message.user.name+", "+robot.brain.data.welcomeMsg
 
-  robot.respond /WELCOMETEST$/i, (msg) ->
-    msg.send "Hey "+msg.message.user.name+", Welcome to the Slack team! I am your personal chatbot here to make your life easier. For more information on my commands say '[my name] help' in chat."
-
-  robot.respond /repeat (.*)$/i, (msg) ->
-    msg.send "you said:" +msg.match[1]
