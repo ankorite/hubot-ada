@@ -31,4 +31,7 @@ module.exports = (robot) ->
     welcomeUsers = robot.brain.data.welcomeUsers
     if msg.message.user.name not in welcomeUsers
       welcomeUsers.push(msg.message.user.name)
-      msg.send "Hey "+msg.message.user.name+", "+robot.brain.data.welcomeMsg
+      msg.send "Hey "+msg.message.user.name+", Welcome to the EnlightenedAK Slack team! I am your personal chatbot here to make your life easier. For more information on my commands say 'ada help' in chat."
+
+  robot.respond /WELCOMETEST$/i, (msg) ->
+    msg.send "Hey "+msg.message.user.name+", Welcome to the Slack team! I am your personal chatbot here to make your life easier. For more information on my commands say '[my name] help' in chat."
