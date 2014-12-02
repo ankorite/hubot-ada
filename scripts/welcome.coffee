@@ -36,5 +36,5 @@ module.exports = (robot) ->
   robot.respond /WELCOMETEST$/i, (msg) ->
     msg.send "Hey "+msg.message.user.name+", Welcome to the Slack team! I am your personal chatbot here to make your life easier. For more information on my commands say '[my name] help' in chat."
 
-  robot.respond /repeat (.*)$/i ->
+  robot.respond /repeat (.*)$/i, (msg) ->
     msg.send "you said:" +msg.match[1]
