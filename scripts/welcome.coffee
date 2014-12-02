@@ -22,7 +22,7 @@ module.exports = (robot) ->
   robot.respond /welcome (.*)/i, (msg) ->
     if msg.message.user.name in robot.brain.data.admins
       robot.brain.data.welcomeMsg = msg.match[1]
-      robot.brain.data.welcomeUsers = []
+#      robot.brain.data.welcomeUsers = []
       msg.send "I will notify everybody of this new message!"
     else
       msg.send "You are so naughty! Ask one of the admins to change this."
