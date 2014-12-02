@@ -33,3 +33,5 @@ module.exports = (robot) ->
       welcomeUsers.push(msg.message.user.name)
       msg.send "Hey "+msg.message.user.name+", "+robot.brain.data.welcomeMsg
 
+  robot.respond /welcometest$/i, (msg) ->
+    msg.send "Hey "+msg.message.user.name+", "+robot.brain.data.welcomeMsg
