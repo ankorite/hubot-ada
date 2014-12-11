@@ -29,7 +29,7 @@
     "hubot-plusplus": "= 1.1.0",
     "hubot-fliptable": ">= 0.0.0",
     "hubot-business-cat": "1.0.x",
-    "hubot-slack-invite-request": "git://github.com/ankorite/hubot-slack-invite-request.git#enlightenedak"
+    "hubot-slack-invite-request": ">= 0.4.0"
   },
   "engines": {
     "node": "0.10.x",
