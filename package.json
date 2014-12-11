@@ -26,7 +26,7 @@
     "hubot-slack": ">= 2.1.0",
     "hubot-ingress": ">= 0.3.5",
     "hubot-factoids": ">= 0.2.3",
-    "hubot-plusplus": ">= 1.0.1",
+    "hubot-plusplus": "= 1.1.0",
     "hubot-fliptable": ">= 0.0.0",
     "hubot-business-cat": "1.0.x",
     "hubot-slack-invite-request": "git://github.com/ankorite/hubot-slack-invite-request.git#enlightenedak"
