@@ -5,20 +5,26 @@
 You will need [node.js](http://nodejs.org/) and [npm](https://npmjs.org/). Joyent has
 an [excellent blog post on how to get those installed](http://joyent.com/blog/installing-node-and-npm), so we'll omit those details here.
 
-Once node and npm are ready, we can install hubot and coffeescript:
+Once node and npm are ready, we can install the hubot generator:
 
-    % npm install -g hubot coffee-script
+    %  npm install -g yo generator-hubot
 
-This will give us the `hubot` command, which is used for running a hubot, and more importantly now, generating your own hubot. The name of the new bot is
-the last argument, and will be created in the directory of the same name. For
-example, to create a new bot named myhubot:
+This will give us the `hubot` [yeoman](http://yeoman.io/) generator. Now we
+can make a new directory, and generate a new instance of hubot in it. For example, if
+we wanted to make a bot called myhubot:
 
-    % hubot --create myhubot
+
+    % mkdir myhubot
+    % cd myhubot
+    % yo hubot
+
+At this point, you'll be asked a few questions about who is creating the bot,
+and which [adapter](adapters.md) you'll be using. Adapters are hubot's way of
+integrating with different chat providers.
 
 If you are using git, the generated directory includes a .gitignore, so you can
 initialize and add everything:
 
-    % cd myhubot
     % git init
     % git add .
     % git commit -m "Initial commit"
@@ -48,7 +54,6 @@ is mostly useful for development. Make note of  `Hubot>`; this is the name he'll
     hubot help <query> - Displays all help commands that match <query>.
     hubot image me <query> - The Original. Queries Google Images for <query> and returns a random top result.
     hubot map me <query> - Returns a map view of the area returned by `query`.
-    hubot math me <expression> - Calculate the given expression.
     hubot mustache me <query> - Searches Google Images for the specified query and mustaches it.
     hubot mustache me <url> - Adds a mustache to the specified URL.
     hubot ping - Reply with pong

@@ -97,7 +97,7 @@ It wouldn't be called for:
 
 * HAL: please open the pod bay doors
    *  because its `respond` is bound to the text immediately following the robot name
-*  has anyone ever mentioned how lovely you are when you open pod bay doors?
+*  has anyone ever mentioned how lovely you are when you open the pod bay doors?
    * because it lacks the robot's name
 
 ## Send & reply
@@ -296,7 +296,7 @@ Hubot can access the environment he's running in, just like any other node progr
 answer = process.env.HUBOT_ANSWER_TO_THE_ULTIMATE_QUESTION_OF_LIFE_THE_UNIVERSE_AND_EVERYTHING
 
 module.exports = (robot) ->
-  robot.respond /what is the answer to the ultimate question of life/, (msg)
+  robot.respond /what is the answer to the ultimate question of life/, (msg) ->
     msg.send "#{answer}, but what is the question?"
 ```
 
@@ -308,7 +308,7 @@ Here we can default to something:
 answer = process.env.HUBOT_ANSWER_TO_THE_ULTIMATE_QUESTION_OF_LIFE_THE_UNIVERSE_AND_EVERYTHING or 42
 
 module.exports = (robot) ->
-  robot.respond /what is the answer to the ultimate question of life/, (msg)
+  robot.respond /what is the answer to the ultimate question of life/, (msg) ->
     msg.send "#{answer}, but what is the question?"
 ```
 
@@ -321,7 +321,7 @@ unless answer?
   process.exit(1)
 
 module.exports = (robot) ->
-  robot.respond /what is the answer to the ultimate question of life/, (msg)
+  robot.respond /what is the answer to the ultimate question of life/, (msg) ->
     msg.send "#{answer}, but what is the question?"
 ```
 
@@ -331,7 +331,7 @@ And lastly, we update the `robot.respond` to check it:
 answer = process.env.HUBOT_ANSWER_TO_THE_ULTIMATE_QUESTION_OF_LIFE_THE_UNIVERSE_AND_EVERYTHING
 
 module.exports = (robot) ->
-  robot.respond /what is the answer to the ultimate question of life/, (msg)
+  robot.respond /what is the answer to the ultimate question of life/, (msg) ->
     unless answer?
       msg.send "Missing HUBOT_ANSWER_TO_THE_ULTIMATE_QUESTION_OF_LIFE_THE_UNIVERSE_AND_EVERYTHING in environment: please set and try again"
       return
@@ -358,7 +358,7 @@ Hubot can run code later using JavaScript's built-in [setTimeout](http://nodejs.
 
 ```coffeescript
 module.exports = (robot) ->
-  robot.respond /you are a little slow/, (msg)
+  robot.respond /you are a little slow/, (msg) ->
     setTimeout () ->
       msg.send "Who you calling 'slow'?"
     , 60 * 1000
@@ -368,7 +368,7 @@ Additionally, Hubot can run code on an interval using [setInterval](http://nodej
 
 ```coffeescript
 module.exports = (robot) ->
-  robot.respond /annoy me/, (msg)
+  robot.respond /annoy me/, (msg) ->
     msg.send "Hey, want to hear the most annoying sound in the world?"
     setInterval () ->
       msg.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
@@ -381,7 +381,7 @@ Both `setTimeout` and `setInterval` return the ID of the timeout or interval it 
 module.exports = (robot) ->
   annoyIntervalId = null
 
-  robot.respond /annoy me/, (msg)
+  robot.respond /annoy me/, (msg) ->
     if annoyIntervalId
       msg.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
       return
@@ -391,10 +391,10 @@ module.exports = (robot) ->
       msg.send "AAAAAAAAAAAEEEEEEEEEEEEEEEEEEEEEEEEIIIIIIIIHHHHHHHHHH"
     , 1000
 
-  robot.respond /unannoy me/, (msg)
+  robot.respond /unannoy me/, (msg) ->
     if annoyIntervalId
       msg.send "GUYS, GUYS, GUYS!"
-      clearInterval(annoyIntervalId)
+      clearInterval(annoyIntervalId) ->
       annoyIntervalId = null
     else
       msg.send "Not annoying you right now, am I?"
@@ -402,7 +402,7 @@ module.exports = (robot) ->
 
 ## HTTP Listener
 
-Hubot includes support for the [express](http://expressjs.com/guide.html) web framework to serve up HTTP requests. It listens on the port specified by the `PORT` environment variable, and defaults to 8080. An instance of an express application is available at `robot.router`. It can be protected with username and password by specifying `EXPRESS_USER` and `EPXRESS_PASSWORD`. It can automatically serve static files by setting `EXPRESS_STATIC`.
+Hubot includes support for the [express](http://expressjs.com/guide.html) web framework to serve up HTTP requests. It listens on the port specified by the `PORT` environment variable, and defaults to 8080. An instance of an express application is available at `robot.router`. It can be protected with username and password by specifying `EXPRESS_USER` and `EXPRESS_PASSWORD`. It can automatically serve static files by setting `EXPRESS_STATIC`.
 
 The most common use of this is for providing HTTP end points for services with webhooks to push to, and have those show up in chat.
 
@@ -534,19 +534,20 @@ Hubot has an in-memory key-value store exposed as `robot.brain` that can be
 used to store and retrieve data by scripts.
 
 ```coffeescript
-module.exports = (robot) ->
-  robot.respond /have a beer/i, (msg) ->
-    # Get number of beers had (coerced to a number).
-    beersHad = robot.brain.get('totalBeers') * 1 or 0
+robot.respond /have a soda/i, (msg) ->
+  # Get number of sodas had (coerced to a number).
+  sodasHad = robot.brain.get('totalSodas') * 1 or 0
 
-    if beersHad > 4
-      msg.reply "I'm too drunk.."
+  if sodasHad > 4
+    msg.reply "I'm too fizzy.."
 
-    else
-      msg.reply 'Sure!'
+  else
+    msg.reply 'Sure!'
 
-      robot.brain.set 'totalBeers', beersHad+1
-      # Or robot.brain.set totalBeers: beersHad+1
+    robot.brain.set 'totalSodas', sodasHad+1
+robot.respond /sleep it off/i, (msg) ->
+  robot.brain.set 'totalSodas', 0
+  robot.respond 'zzzzz'
 ```
 
 If the script needs to lookup user data, there are methods on `robot.brain` for looking up one or many users by id, name, or 'fuzzy' matching of name: `userForName`, `userForId`, `userForFuzzyName`, and `usersForFuzzyName`.
