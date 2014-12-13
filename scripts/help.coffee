@@ -72,7 +72,7 @@ module.exports = (robot) ->
 
     msg.message.reply_to = msg.envelope.user.id
 
-    robot.adapter.send msg.message, cmds.join "\n"
+#    robot.adapter.send msg.message, cmds.join "\n"
 
     msg.message.reply_to = null
 
