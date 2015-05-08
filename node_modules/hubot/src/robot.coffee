@@ -61,11 +61,11 @@ class Robot
     @adapterName   = adapter
     @errorHandlers = []
 
-    @on 'error', (err, msg) =>
-      @invokeErrorHandlers(err, msg)
-    process.on 'uncaughtException', (err) =>
+    @on 'error', (err, res) =>
+      @invokeErrorHandlers(err, res)
+    @onUncaughtException = (err) =>
       @emit 'error', err
-
+    process.on 'uncaughtException', @onUncaughtException
 
   # Public: Adds a Listener that attempts to match incoming messages based on
   # a Regex.
@@ -161,14 +161,14 @@ class Robot
   # user emitted error events.
   #
   # err - An Error object.
-  # msg - An optional Response object that generated the error
+  # res - An optional Response object that generated the error
   #
   # Returns nothing.
-  invokeErrorHandlers: (err, msg) ->
+  invokeErrorHandlers: (err, res) ->
     @logger.error err.stack
     for errorHandler in @errorHandlers
      try
-       errorHandler(err, msg)
+       errorHandler(err, res)
      catch errErr
        @logger.error "while invoking error handler: #{errErr}\n#{errErr.stack}"
 
@@ -275,8 +275,11 @@ class Robot
     user    = process.env.EXPRESS_USER
     pass    = process.env.EXPRESS_PASSWORD
     stat    = process.env.EXPRESS_STATIC
+    port    = process.env.EXPRESS_PORT or process.env.PORT or 8080
+    address = process.env.EXPRESS_BIND_ADDRESS or process.env.BIND_ADDRESS or '0.0.0.0'
 
     express = require 'express'
+    multipart = require 'connect-multiparty'
 
     app = express()
 
@@ -286,11 +289,17 @@ class Robot
 
     app.use express.basicAuth user, pass if user and pass
     app.use express.query()
-    app.use express.bodyParser()
+
+    app.use express.json()
+    app.use express.urlencoded()
+    # replacement for deprecated express.multipart/connect.multipart
+    # limit to 100mb, as per the old behavior
+    app.use multipart(maxFilesSize: 100 * 1024 * 1024)
+
     app.use express.static stat if stat
 
     try
-      @server = app.listen(process.env.PORT || 8080, process.env.BIND_ADDRESS || '0.0.0.0')
+      @server = app.listen(port, address)
       @router = app
     catch err
       @logger.error "Error trying to start HTTP server: #{err}\n#{err.stack}"
@@ -447,6 +456,7 @@ class Robot
   # Returns nothing.
   shutdown: ->
     clearInterval @pingIntervalId if @pingIntervalId?
+    process.removeListener 'uncaughtException', @onUncaughtException
     @adapter.close()
     @brain.close()
 
