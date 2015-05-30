@@ -29,7 +29,8 @@
     "hubot-plusplus": "ajacksified/hubot-plusplus",
     "hubot-rss-reader": "^0.5.4",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
-    "hubot-slack": "slackhq/hubot-slack"
+    "hubot-slack": "slackhq/hubot-slack",
+    "slack-invite-request": "therealklanni/slack-invite-request"
   },
   "engines": {
     "node": "0.10.x",
