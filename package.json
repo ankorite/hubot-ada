@@ -27,7 +27,6 @@
     "hubot-fliptable": ">= 0.0.0",
     "hubot-ingress": "hubot-scripts/hubot-ingress",
     "hubot-plusplus": "hubot-scripts/hubot-plusplus",
-    "hubot-rss-reader": "^0.5.4",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "hubot-slack": "slackhq/hubot-slack",
     "slack-invite-request": "therealklanni/slack-invite-request"
