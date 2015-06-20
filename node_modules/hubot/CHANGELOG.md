@@ -1,3 +1,29 @@
+v2.13.2
+=======
+
+* Minor documentation updates
+* Add Robot.respondPattern private to improve testability https://github.com/github/hubot/pull/975
+* Ignore .node-version so it isn't included in releases https://github.com/github/hubot/pull/980
+
+v2.13.1
+=======
+
+* Fix documentation when running `hubot -c` to suggest correct usage of generator https://github.com/github/hubot/pull/938
+* Fix respond listeners matching when robot alias is a substring of robot name https://github.com/github/hubot/pull/927
+* Update bin/hubot to log a warning if called with non-existent options https://github.com/github/hubot/pull/931
+
+v2.13.0
+=======
+
+* Fix some website links
+* Link to Freenode channel (#hubot)
+* Fix license in package.json
+* Various documentation updates
+* More automated tests
+* Add support for global http options (see https://github.com/github/hubot/blob/master/docs/patterns.md#forwarding-all-http-requests-through-a-proxy for details)
+* Add support for listener metadata (see https://github.com/github/hubot/blob/master/docs/scripting.md#listener-metadata) for details
+* Document using npm search for finding scripts
+
 v2.12.0
 =======
 

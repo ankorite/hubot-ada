@@ -28,8 +28,7 @@
     "hubot-ingress": "hubot-scripts/hubot-ingress",
     "hubot-plusplus": "hubot-scripts/hubot-plusplus",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
-    "hubot-slack": "slackhq/hubot-slack",
-    "slack-invite-request": "therealklanni/slack-invite-request"
+    "hubot-slack": "slackhq/hubot-slack"
   },
   "engines": {
     "node": "0.12.x",

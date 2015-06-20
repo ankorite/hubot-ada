@@ -3,55 +3,7 @@ permalink: /docs/scripting/index.html
 layout: docs
 ---
 
-Hubot out of the box doesn't do too much, but it is an extensible, scriptable robot friend.
-
-## Anatomy of script loading
-
-There are three main sources to load scripts from:
-
-* all scripts __bundled__ with your hubot installation under `scripts/` dir
-* __community scripts__ specified in `hubot-scripts.json` and shipped in the `hubot-scripts` npm package
-* scripts loaded from external __npm packages__ and specified in `external-scripts.json`
-
-### Community Scripts
-
-To use community scripts, place the name of the script in the `hubot-scripts.json` file. For example:
-
-```coffeescript
-["redis-brain.coffee", "shipit.coffee", "whatis.coffee", "<new-script-name>.coffee"]
-```
-
-(Please check the [script catalog](http://hubot-script-catalog.herokuapp.com) and the [hubot-scripts repo](https://github.com/github/hubot-scripts/tree/master/src/scripts) for scripts carefully crafted for you by lots of nice folks)
-
-### NPM Packages
-
-Another way is to install scripts via an npm package (you can check some of them [here](https://npmjs.org/search?q=hubot)).
-
-To load those scripts to your hubot installation, you need to place them in the `external-scripts.json` file after adding the required npm packages to the `package.json` dependency section.
-
-Here is an example of adding the [hubot-botriot](https://npmjs.org/package/hubot-botriot) npm package:
-
-```json
-{
- ...
-
-  "dependencies": {
-    "hubot":         ">= 2.6.0 < 3.0.0",
-    "hubot-scripts": ">= 2.5.0 < 3.0.0",
-    "hubot-botriot": "",
-  },
-
-...
-}
-```
-
-### Bundled Scripts
-
-Last but not least, you can put your own scripts under the `scripts/` directory. All scripts placed there are automatically loaded and ready to use with your hubot.
-
-You can also use this for customizing scripts from other sources. Just copy the *.coffee file into this directory and make whatever changes you'd like.
-
-Instructions for writing your own scripts can be found below.
+Hubot out of the box doesn't do too much, but it is an extensible, scriptable robot friend. There are [hundreds of scripts written and maintained by the community](/docs/#scripts.md) and it's easy to write your own.
 
 ## Anatomy of a script
 
@@ -161,6 +113,7 @@ A post looks like:
     foo: 'bar'
   })
   robot.http("https://midnight-train")
+    .header('Content-Type', 'application/json')
     .post(data) (err, res, body) ->
       # your code here
 ```
@@ -215,7 +168,7 @@ If you are talking to APIs, the easiest way is going to be JSON because it doesn
     .get() (err, res, body) ->
       # error checking code here
 
-      data = JSON.parse(body)
+      data = JSON.parse body
       res.send "#{data.passenger} taking midnight train going #{data.destination}"
 ```
 
@@ -233,7 +186,7 @@ It's possible to get non-JSON back, like if the API hit an error and it tries to
 
       data = null
       try
-        data = JSON.parse(body)
+        data = JSON.parse body
       catch error
        res.send "Ran into an error parsing JSON :("
        return
@@ -359,12 +312,11 @@ module.exports = (robot) ->
 
 ## Dependencies
 
-Hubot uses [npm](https://github.com/isaacs/npm) to manage its dependencies. To additional packages, add them to `dependencies` in `package.json`. For example, to add lolimadeupthispackage 1.2.3, it'd look like:
+Hubot uses [npm](https://github.com/isaacs/npm) to manage its dependencies. To add additional packages, add them to `dependencies` in `package.json`. For example, to add lolimadeupthispackage 1.2.3, it'd look like:
 
 ```json
   "dependencies": {
     "hubot":         "2.5.5",
-    "hubot-scripts": "2.4.6",
     "lolimadeupthispackage": "1.2.3"
   },
 ```
@@ -421,7 +373,7 @@ module.exports = (robot) ->
 
 ## HTTP Listener
 
-Hubot includes support for the [express](http://expressjs.com/guide.html) web framework to serve up HTTP requests. It listens on the port specified by the `EXPRESS_PORT` or `PORT` environment variables (preferred in that order) and defaults to 8080. An instance of an express application is available at `robot.router`. It can be protected with username and password by specifying `EXPRESS_USER` and `EXPRESS_PASSWORD`. It can automatically serve static files by setting `EXPRESS_STATIC`.
+Hubot includes support for the [express](http://expressjs.com) web framework to serve up HTTP requests. It listens on the port specified by the `EXPRESS_PORT` or `PORT` environment variables (preferred in that order) and defaults to 8080. An instance of an express application is available at `robot.router`. It can be protected with username and password by specifying `EXPRESS_USER` and `EXPRESS_PASSWORD`. It can automatically serve static files by setting `EXPRESS_STATIC`.
 
 The most common use of this is for providing HTTP end points for services with webhooks to push to, and have those show up in chat.
 
@@ -518,7 +470,7 @@ Using previous examples:
         # rest of code here
 ```
 
-For the second example, it's worth thinking about what messages the user would see. If you have an error handler that replies to the user, you may not need to add a custom message and could send back the error message provided to the `get()` request, but of course it depends on how public you want to be with your exception reporting. 
+For the second example, it's worth thinking about what messages the user would see. If you have an error handler that replies to the user, you may not need to add a custom message and could send back the error message provided to the `get()` request, but of course it depends on how public you want to be with your exception reporting.
 
 ## Documenting Scripts
 
@@ -596,13 +548,23 @@ module.exports = (robot) ->
       res.send "#{name} is user - #{user}"
 ```
 
-## Script Load Order
+## Script Loading
 
-Scripts are loaded from the `scripts/` directory. They are loaded in alphabetical order, so you can expect a consistent load order of scripts. For example:
+There are three main sources to load scripts from:
+
+* all scripts __bundled__ with your hubot installation under `scripts/` directory
+* __community scripts__ specified in `hubot-scripts.json` and shipped in the `hubot-scripts` npm package
+* scripts loaded from external __npm packages__ and specified in `external-scripts.json`
+
+Scripts loaded from the `scripts/` directory are loaded in alphabetical order, so you can expect a consistent load order of scripts. For example:
 
 * `scripts/1-first.coffee`
 * `scripts/_second.coffee`
 * `scripts/third.coffee`
+
+# Sharing Scripts
+
+Once you've built some new scripts to extend the abilities of your robot friend, you should consider sharing them with the world! At the minimum, you need to package up your script and submit it to the [Node.js Package Registry](http://npmjs.org). You should also review the best practices for sharing scripts below.
 
 ## Creating A Script Package
 
@@ -623,3 +585,26 @@ module.exports = (robot) ->
 ```
 
 After you've built your `npm` package you can publish it to [npmjs](http://npmjs.org).
+
+## Listener Metadata
+
+In addition to a regular expression and callback, the `hear` and `respond` functions also accept an optional options Object which can be used to attach arbitrary metadata to the generated Listener object. This metadata allows for easy extension of your script's behavior without modifying the script package.
+
+The most important and most common metadata key is `id`. Every Listener should be given a unique name (options.id; defaults to `null`). Names should be scoped by module (e.g. 'my-module.my-listener'). These names allow other scripts to directly address individual listeners and extend them with additional functionality like authorization and rate limiting.
+
+Additional extensions may define and handle additional metadata keys.
+
+Returning to an earlier example:
+
+```coffeescript
+module.exports = (robot) ->
+  robot.respond /annoy me/, id:'annoyance.start', (msg)
+    # code to annoy someone
+
+  robot.respond /unannoy me/, id:'annoyance.stop', (msg)
+    # code to stop annoying someone
+```
+
+These scoped identifiers allow you to externally specify new behaviors like:
+- authorization policy: "allow everyone in the `annoyers` group to execute `annoyance.*` commands"
+- rate limiting: "only allow executing `annoyance.start` once every 30 minutes"
